@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
   
     <link rel="stylesheet" href="../../../public/css/style.css">
-    <title>Overzicht Instructeurs</title>
+    <title>Overzicht</title>
 </head>
 <body>
     <u><?= $data['title']; ?></u>

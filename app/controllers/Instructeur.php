@@ -13,9 +13,6 @@ class Instructeur extends BaseController
     {
         $result = $this->instructeurModel->getInstructeurs();
 
-        //  var_dump($result);
-        // $date=date_create("2013-03-15");
-        // echo date_format($date,"Y/m/d H:i:s");
         $rows = "";
         foreach ($result as $instructeur) {
             $date = date_create($instructeur->DatumInDienst);
@@ -45,22 +42,15 @@ class Instructeur extends BaseController
 
     public function overzichtVoertuigen($Id)
     {
-        $result = $this->instructeurModel->getToegewezenVoertuigen($Id);
-        $secondResult = $this->instructeurModel->getInstructeurs();
-        $Vnaam = "";
-        $Tnaam = "";
-        $Anaam = "";
-        $InDienst = "";
-        $Sterren = "";
-        foreach ($secondResult as $instructeur) {
-            $Vnaam = "$instructeur->Voornaam";
-            $Anaam = "$instructeur->Tussenvoegsel";
-            $Tnaam = "$instructeur->Achternaam";
-            $InDienst = "$instructeur->DatumInDienst";
-            $Sterren = "$instructeur->AantalSterren";    
-                                         
-        }
+        $instructeurInfo = $this->instructeurModel->getInstrueurById($Id);
         
+        $Vnaam = $instructeurInfo->Voornaam;
+        $Tnaam = $instructeurInfo->Tussenvoegsel;
+        $Anaam = $instructeurInfo->Achternaam;
+        $InDienst = $instructeurInfo->DatumInDienst;
+        $Sterren = $instructeurInfo->AantalSterren;
+       
+        $result = $this->instructeurModel->getToegewezenVoertuigen($Id);
         $tableRows = "";
         foreach ($result as $voertuig) {
         $date_formatted = date_format(date_create($voertuig->Bouwjaar), 'd-m-Y');

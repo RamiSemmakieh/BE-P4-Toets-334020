@@ -35,4 +35,18 @@ class InstructeurModel
         $this->db->query($sql); 
         return $this->db->resultSet();   
     }
+
+    public function getInstrueurById($Id)
+    {
+        $sql = "SELECT  Voornaam
+                        ,Tussenvoegsel
+                        ,Achternaam
+                        ,DatumInDienst
+                        ,AantalSterren
+                FROM    Instructeur
+                WHERE Id = $Id";
+                
+                $this->db->query($sql);
+                return $this->db->single();
+    }
 }

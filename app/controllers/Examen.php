@@ -15,7 +15,7 @@ class Examen extends BaseController
         $rows = "";
         foreach ($result as $Examen) {
             $rows .= "<tr>
-                        <td>$Examen->voornaaam $Examen->tussenvoegsel $Examen->Achternaam</td>
+                        <td>$Examen->voornaam $Examen->tussenvoegsel $Examen->Achternaam</td>
                         <td>$Examen->Datum</td>
                         <td>$Examen->Rijbewijscategorie</td>
                         <td>$Examen->Rijschool</td>
